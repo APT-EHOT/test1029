@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,14 +29,30 @@ public class MainActivity extends AppCompatActivity {
         etTextView = findViewById(R.id.etMain);
         etButton = findViewById(R.id.etButton);
 
+        int a = 0;
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 textViewText = etTextView.getText().toString();
-                textView.setText(textViewText);
-
                 buttonText = etButton.getText().toString();
-                button.setText(buttonText);
+
+                if (textViewText.isEmpty() || buttonText.isEmpty()) {
+                    Toast
+                        .makeText(getApplicationContext(),
+                            "Empty text fields! Please specify text!",
+                            Toast.LENGTH_LONG)
+                        .show();
+                } else {
+                    textView.setText(textViewText);
+                    button.setText(buttonText);
+                    Toast
+                        .makeText(getApplicationContext(),
+                            "Text applied!",
+                            Toast.LENGTH_SHORT)
+                        .show();
+                }
+
             }
         });
     }
