@@ -2,6 +2,7 @@ package com.example.test1029;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     TextView textView;
     EditText etTextView;
     EditText etButton;
+    Button nextActivityButton;
 
     String textViewText;
     String buttonText;
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.tvMain);
         etTextView = findViewById(R.id.etMain);
         etButton = findViewById(R.id.etButton);
+        nextActivityButton = findViewById(R.id.moveToNextActivityButton);
 
         int a = 0;
 
@@ -53,6 +56,14 @@ public class MainActivity extends AppCompatActivity {
                         .show();
                 }
 
+            }
+        });
+
+        nextActivityButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(intent);
             }
         });
     }
