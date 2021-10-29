@@ -12,9 +12,11 @@ public class MainActivity extends AppCompatActivity {
 
     Button button;
     TextView textView;
-    EditText editText;
+    EditText etTextView;
+    EditText etButton;
 
-    String text;
+    String textViewText;
+    String buttonText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,13 +25,17 @@ public class MainActivity extends AppCompatActivity {
 
         button = findViewById(R.id.btnMain);
         textView = findViewById(R.id.tvMain);
-        editText = findViewById(R.id.etMain);
+        etTextView = findViewById(R.id.etMain);
+        etButton = findViewById(R.id.etButton);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                text = editText.getText().toString();
-                textView.setText(text);
+                textViewText = etTextView.getText().toString();
+                textView.setText(textViewText);
+
+                buttonText = etButton.getText().toString();
+                button.setText(buttonText);
             }
         });
     }
